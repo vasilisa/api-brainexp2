@@ -289,8 +289,9 @@ button:hover {
 	display: inline-block;
 	width: 170px;
 	height: 50px;
-	padding-top: 150px;
-	background-repeat: no-repeat;
+/*	padding-top: 150px;
+*/	background-repeat: no-repeat;
+	padding-top: 50px; 
 	background-position: center bottom;
 }
 
