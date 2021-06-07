@@ -27,7 +27,7 @@ def create_question_participant(participant_id,block_id,prolific_id):
     participant.date_time_survey_start  = str(content['date_time_survey_start'])
     participant.date_time_survey_end    = str(content['date_time_survey_end'])
     participant.date_time               = str(content['date_time'])
-    participant.survey_completed        = content['survey_completed'] 
+    # participant.survey_completed        = content['survey_completed'] 
 
     BaseObject.check_and_save(participant)
 
