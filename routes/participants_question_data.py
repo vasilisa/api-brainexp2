@@ -12,13 +12,16 @@ import numpy as np
 
 @app.route("/participants_question_data/create/<participant_id>/<block_id>/<prolific_id>", methods=["POST","GET"])
 def create_question_participant(participant_id,block_id,prolific_id):
-     content     = request.json        
+    content      = request.json 
+
+    
+
      participant = ParticipantsQuestionData()
 
      participant.participant_id  = int(participant_id)
      participant.prolific_id     = str(prolific_id)
 
-     participant.block_number    = int(content['block_number'])
+     participant.block_number    = int(block_id) # int(content['block_number'])
      participant.block_name      = str(content['block_name'])  
      participant.question_ids    = str(content['question_ids'])
      participant.answers         = str(content['answers'])
