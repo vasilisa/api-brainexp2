@@ -24,7 +24,7 @@ class ParticipantsQuestionData(BaseObject, Model):
     block_name       = Column(VARCHAR(length=1000)) # the questionnaire has parts and each part is stored as a separate row in the table
     question_ids     = Column(VARCHAR(length=1000))  # the survey block name /tag for the section 
     answers          = Column(VARCHAR(length=10000)) # an array with the string answers to each of the question items in the questionnaire block    
-    survey_completed = Column(VARCHAR(length=100)) # whether the survey has been completed, uncompleted or "aborted"
+    completed        = Column(VARCHAR(length=100)) # whether the survey has been completed, uncompleted or "aborted"
     
 
     def get_id(self):
