@@ -12,32 +12,28 @@ import numpy as np
 
 @app.route("/participants_question_data/create/<participant_id>/<block_id>/<prolific_id>", methods=["POST","GET"])
 def create_question_participant(participant_id,block_id,prolific_id):
-    content      = request.json 
+    content     = request.json 
+    participant = ParticipantsQuestionData()
 
-    
+    participant.participant_id  = int(participant_id)
+    participant.prolific_id     = str(prolific_id)
 
-     participant = ParticipantsQuestionData()
-
-     participant.participant_id  = int(participant_id)
-     participant.prolific_id     = str(prolific_id)
-
-     participant.block_number    = int(block_id) # int(content['block_number'])
-     participant.block_name      = str(content['block_name'])  
-     participant.question_ids    = str(content['question_ids'])
-     participant.answers         = str(content['answers'])
-     participant.handle          = content['handle']
+    participant.block_number    = int(block_id) # int(content['block_number'])
+    participant.block_name      = str(content['block_name'])  
+    participant.question_ids    = str(content['question_ids'])
+    participant.answers         = str(content['answers'])
+    participant.handle          = content['handle']
      
-     
-     participant.date_time_survey_start  = str(content['date_time_survey_start'])
-     participant.date_time_survey_end    = str(content['date_time_survey_end'])
-     participant.date_time               = str(content['date_time'])
-     participant.survey_completed        = content['survey_completed'] 
+    participant.date_time_survey_start  = str(content['date_time_survey_start'])
+    participant.date_time_survey_end    = str(content['date_time_survey_end'])
+    participant.date_time               = str(content['date_time'])
+    participant.survey_completed        = content['survey_completed'] 
 
-     BaseObject.check_and_save(participant)
+    BaseObject.check_and_save(participant)
 
-     result = dict({"success": "yes"})    
+    result = dict({"success": "yes"})    
 
-     return jsonify(result)
+    return jsonify(result)
 
 # To ge the data from this table 
 @app.route('/participants_question_data/<participant_id>/<block_id>', methods=['GET'])
